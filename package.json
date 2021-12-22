@@ -1,0 +1,17 @@
+{
+  "name": "ratherbegaming-bot",
+  "version": "1.0.0",
+  "description": "Discord bot project created for practice and private use",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darek Charlet",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-regex": "^6.0.1",
+    "discord.js": "^13.3.1",
+    "npm": "^8.3.0",
+    "strip-ansi": "^7.0.1"
+  }
+}
