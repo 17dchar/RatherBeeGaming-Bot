@@ -76,4 +76,4 @@ typings/
 .fusebox/
 
 # discord bot config
-.config.json
+config.json
