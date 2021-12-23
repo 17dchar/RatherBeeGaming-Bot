@@ -2,16 +2,25 @@
 const fs = require('fs');
 const {Client, Collection, Intents} = require('discord.js');
 const {token} = require('./config.json');
+const Sequelize = require('sequelize');
+const Games = require('./Models/game');
 
 // establish intents
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILDS);
 myIntents.add(Intents.FLAGS.GUILD_MESSAGES);
 
-
 // create client instance
 const client = new Client({intents: myIntents});
 client.commands = new Collection();
+
+// connect to db
+const sequelize = new Sequelize('database', 'user', 'password', {
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	storage: 'database.sqlite',
+});
 
 // reads command files
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
