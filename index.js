@@ -42,7 +42,7 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-// ready check
+// init
 client.once('ready', () => {
     console.log('Bee bot ready!');
 });
