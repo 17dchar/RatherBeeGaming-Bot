@@ -1,8 +1,10 @@
-const Sequelize = require('sequelize');
+const db = require('../db.js'),
+	sequelize = db.sequelize,
+	Sequelize = db.Sequelize;
 
-const Games = Sequelize.define('games', {
+const Games = sequelize.define('games', {
     name: {
-        type: Sequelize.type,
+        type: Sequelize.TEXT,
         unique: true,
     },
     description: Sequelize.TEXT,
@@ -11,4 +13,5 @@ const Games = Sequelize.define('games', {
     numRatings: Sequelize.INTEGER
 });
 
+Games.sync();
 exports.Games = Games;

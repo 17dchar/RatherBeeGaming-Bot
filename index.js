@@ -2,8 +2,10 @@
 const fs = require('fs');
 const {Client, Collection, Intents} = require('discord.js');
 const {token} = require('./config.json');
-const Sequelize = require('sequelize');
 const Games = require('./Models/game');
+const db = require('./db.js'),
+	sequelize = db.sequelize,
+	Sequelize = db.Sequelize;
 
 // establish intents
 const myIntents = new Intents();
@@ -14,20 +16,13 @@ myIntents.add(Intents.FLAGS.GUILD_MESSAGES);
 const client = new Client({intents: myIntents});
 client.commands = new Collection();
 
-// connect to db
-const sequelize = new Sequelize('database', 'user', 'password', {
-	host: 'localhost',
-	dialect: 'sqlite',
-	logging: false,
-	storage: 'database.sqlite',
-});
-
 // reads command files
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 // add commands from files to collection
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
+	console.log(`${file} loaded`);
     // key = command name, value = exported module
     client.commands.set(command.data.name, command);
 }
@@ -47,7 +42,7 @@ client.on('interactionCreate', async interaction => {
 		await command.execute(interaction);
 	} catch (error) {
 		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		await interaction.reply({ content: 'There was an error while executing this command.', ephemeral: true });
 	}
 });
 
