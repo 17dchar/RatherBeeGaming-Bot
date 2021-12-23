@@ -30,7 +30,7 @@ client.on('interactionCreate', async interaction => {
 
     // get respective command from list
 	const command = client.commands.get(interaction.commandName);
-    
+
     // if command undefined => exit
 	if (!command) return;
 
