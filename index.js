@@ -2,10 +2,11 @@
 const fs = require('fs');
 const {Client, Collection, Intents} = require('discord.js');
 const {token} = require('./config.json');
-const Games = require('./Models/game');
+const Games = require('./Models/game.js');
 const db = require('./db.js'),
 	sequelize = db.sequelize,
 	Sequelize = db.Sequelize;
+const {associations} = require('./Models/associations.js');
 
 // establish intents
 const myIntents = new Intents();

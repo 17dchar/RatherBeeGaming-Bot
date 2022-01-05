@@ -4,11 +4,7 @@ const db = require('../db.js'),
 	sequelize = db.sequelize,
 	Sequelize = db.Sequelize;
 
-const UserRatings = sequelize.define('userRatings', {
-    game: {
-        type: Sequelize.TEXT,
-        unique: true,
-    },
+const ratings = sequelize.define('ratings', {
     user: {
         type: Sequelize.TEXT,
         unique: true,
@@ -16,6 +12,5 @@ const UserRatings = sequelize.define('userRatings', {
     rating: Sequelize.FLOAT
 });
 
-UserRatings.belongsTo(Games);
-UserRatings.sync();
-exports.UserRatings = UserRatings;
+ratings.sync();
+exports.ratings = ratings;

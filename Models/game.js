@@ -1,4 +1,4 @@
-const { UserRatings } = require('./userRatings.js');
+const { UserRatings } = require('./ratings.js');
 
 const db = require('../db.js'),
 	sequelize = db.sequelize,
@@ -15,6 +15,5 @@ const Games = sequelize.define('games', {
     numRatings: Sequelize.INTEGER
 });
 
-Games.hasMany(UserRatings);
 Games.sync();
 exports.Games = Games;

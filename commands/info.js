@@ -16,9 +16,24 @@ module.exports = {
             const gameName = interaction.options.getString('name');
             const game = await Games.findOne({ where: { name: gameName } });
             
-            const infoString =  `__**${game.get('name')}**__\n` + 
-                                `>>> ${game.get('description')}\n` +
-                                `$${game.get('price')}`
+            let infoString = `__**${game.get('name')}**__\n`;
+
+            // check for description
+            if(game.get('description') != 'null') {
+                infoString = infoString + `>>> Description: ${game.get('description')}\n`;
+            }
+            else {
+                infoString = infoString + `>>> Description not yet added\n`;
+            }
+
+            // check for price
+            if(game.get('price') != 'null') {
+                infoString = infoString + `Price: $${game.get('price')}\n`;
+            }
+            else {
+                infoString = infoString + `Price not yet added\n`;
+            }
+
             await interaction.reply(infoString);
         }
 }
