@@ -19,19 +19,19 @@ module.exports = {
             let infoString = `__**${game.get('name')}**__\n`;
 
             // check for description
-            if(game.get('description') != 'null') {
-                infoString = infoString + `>>> Description: ${game.get('description')}\n`;
+            if(game.get('description') == null) {
+                infoString = infoString + `>>> Description: not yet added\n`;
             }
             else {
-                infoString = infoString + `>>> Description not yet added\n`;
+                infoString = infoString + `>>> Description: ${game.get('description')}\n`;
             }
 
             // check for price
-            if(game.get('price') != 'null') {
-                infoString = infoString + `Price: $${game.get('price')}\n`;
+            if(game.get('price') == null) {
+                infoString = infoString + `Price: not yet added\n`;
             }
             else {
-                infoString = infoString + `Price not yet added\n`;
+                infoString = infoString + `Price: $${game.get('price')}\n`;
             }
 
             await interaction.reply(infoString);
