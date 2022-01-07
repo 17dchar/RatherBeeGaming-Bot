@@ -4,13 +4,15 @@ const db = require('../db.js'),
 	sequelize = db.sequelize,
 	Sequelize = db.Sequelize;
 
-const ratings = sequelize.define('ratings', {
+const Ratings = sequelize.define('ratings', {
     user: {
         type: Sequelize.TEXT,
-        unique: true,
+        unique: true
     },
-    rating: Sequelize.FLOAT
+    rated: {
+        type: Sequelize.FLOAT
+    }
 });
 
-ratings.sync();
-exports.ratings = ratings;
+Ratings.sync();
+exports.Ratings = Ratings;

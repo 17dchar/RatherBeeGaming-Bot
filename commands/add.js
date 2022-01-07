@@ -33,8 +33,6 @@ module.exports = {
                 name: gameName,
                 description: gameDesc,
                 price: gamePrice,
-                aveRating: 0.0,
-                numRatings: 0,
             })
         }
         catch(error){

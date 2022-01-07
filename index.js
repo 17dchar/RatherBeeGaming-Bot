@@ -7,6 +7,7 @@ const db = require('./db.js'),
 	sequelize = db.sequelize,
 	Sequelize = db.Sequelize;
 const {associations} = require('./Models/associations.js');
+const { Ratings } = require('./Models/rating');
 
 // establish intents
 const myIntents = new Intents();

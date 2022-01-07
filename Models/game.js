@@ -1,4 +1,4 @@
-const { UserRatings } = require('./ratings.js');
+const { Rating } = require('./rating');
 
 const db = require('../db.js'),
 	sequelize = db.sequelize,
@@ -11,8 +11,6 @@ const Games = sequelize.define('games', {
     },
     description: Sequelize.TEXT,
     price: Sequelize.FLOAT,
-    aveRating: Sequelize.FLOAT,
-    numRatings: Sequelize.INTEGER
 });
 
 Games.sync();
