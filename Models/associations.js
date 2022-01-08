@@ -4,8 +4,5 @@ const db = require('../db.js'),
 	sequelize = db.sequelize,
 	Sequelize = db.Sequelize;
 
-Games.hasMany(Ratings, {
-    sourceKey: 'name',
-    foreignKey: 'gameName'
-});
+Games.hasMany(Ratings);
 Ratings.belongsTo(Games);

@@ -11,8 +11,11 @@ const Ratings = sequelize.define('ratings', {
     },
     rated: {
         type: Sequelize.FLOAT
+    },
+    gameId: {
+        type: Sequelize.INTEGER
     }
 });
 
-Ratings.sync();
+Ratings.sync({ alter: true });
 exports.Ratings = Ratings;

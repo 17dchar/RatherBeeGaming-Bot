@@ -38,5 +38,7 @@ module.exports = {
             }
             console.log(e);
         }
+        checkTheRating = await Games.findOne({ where: { name: gName}, include: Ratings});
+        console.log(checkTheRating.get('rated'));
 	},
 };

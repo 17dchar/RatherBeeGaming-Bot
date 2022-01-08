@@ -10,8 +10,8 @@ const Games = sequelize.define('games', {
         unique: true,
     },
     description: Sequelize.TEXT,
-    price: Sequelize.FLOAT,
+    price: Sequelize.FLOAT
 });
 
-Games.sync();
+Games.sync({ alter: true });
 exports.Games = Games;
