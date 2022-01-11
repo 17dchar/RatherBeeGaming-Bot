@@ -11,7 +11,7 @@ const Games = sequelize.define('games', {
     },
     description: Sequelize.TEXT,
     price: Sequelize.FLOAT
-});
+}, {timestamps: false});
 
-Games.sync({ alter: true });
+Games.sync({ force: true });
 exports.Games = Games;

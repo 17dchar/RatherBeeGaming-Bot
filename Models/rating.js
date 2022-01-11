@@ -7,15 +7,14 @@ const db = require('../db.js'),
 const Ratings = sequelize.define('ratings', {
     user: {
         type: Sequelize.TEXT,
-        unique: true
     },
     rated: {
         type: Sequelize.FLOAT
     },
-    gameId: {
-        type: Sequelize.INTEGER
+    gameName: {
+        type: Sequelize.TEXT
     }
-});
+}, {timestamps: false});
 
-Ratings.sync({ alter: true });
+Ratings.sync({ force: true });
 exports.Ratings = Ratings;
