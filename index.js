@@ -2,12 +2,10 @@
 const fs = require('fs');
 const {Client, Collection, Intents} = require('discord.js');
 const {token} = require('./config.json');
-const Games = require('./Models/game.js');
-const db = require('./db.js'),
-	sequelize = db.sequelize,
-	Sequelize = db.Sequelize;
-const {associations} = require('./Models/associations.js');
-const { Ratings } = require('./Models/rating');
+const { Game } = require('./Models/game.js');
+const { db } = require('./db.js');
+// const { associations } = require('./Models/associations.js');
+const { Rating } = require('./Models/rating');
 
 // establish intents
 const myIntents = new Intents();
@@ -50,6 +48,11 @@ client.on('interactionCreate', async interaction => {
 
 // init
 client.once('ready', () => {
+	Game.hasMany(Rating, {
+		sourceKey: 'name',
+		foreignKey: `gameName`
+	});
+	Rating.belongsTo(Game);
     console.log('Bee bot ready!');
 });
 

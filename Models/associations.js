@@ -1,11 +1,12 @@
-const { Games } = require('./game.js');
-const { Ratings } = require('./rating.js');
+/*const { Game } = require('./game.js');
+const { Rating } = require('./rating.js');
 const db = require('../db.js'),
 	sequelize = db.sequelize,
 	Sequelize = db.Sequelize;
 
-Games.hasMany(Ratings, {
+Game.hasMany(Rating, {
 	sourceKey: 'name',
 	foreignKey: `gameName`
 });
-Ratings.belongsTo(Games);
+Rating.belongsTo(Game);
+*/

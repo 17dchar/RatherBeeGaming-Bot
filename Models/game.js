@@ -4,7 +4,7 @@ const db = require('../db.js'),
 	sequelize = db.sequelize,
 	Sequelize = db.Sequelize;
 
-const Games = sequelize.define('games', {
+const Game = sequelize.define('game', {
     name: {
         type: Sequelize.TEXT,
         unique: true,
@@ -13,5 +13,5 @@ const Games = sequelize.define('games', {
     price: Sequelize.FLOAT
 }, {timestamps: false});
 
-Games.sync({ force: true });
-exports.Games = Games;
+Game.sync({ force: true });
+exports.Game = Game;

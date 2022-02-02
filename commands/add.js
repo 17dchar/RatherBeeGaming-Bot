@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { CommandInteraction } = require("discord.js");
-const { Games } = require('../Models/game');
+const { Game } = require('../Models/game');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -29,7 +29,7 @@ module.exports = {
         const gamePrice = interaction.options.getString("price");
 
         try{
-            const game = Games.create({
+            const game = Game.create({
                 name: gameName,
                 description: gameDesc,
                 price: gamePrice,

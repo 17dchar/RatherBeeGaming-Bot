@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Games } = require('../Models/game');
+const { Game } = require('../Models/game');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,7 +14,7 @@ module.exports = {
 
         async execute(interaction) {
             const gameName = interaction.options.getString('name');
-            const game = await Games.findOne({ where: { name: gameName } });
+            const game = await Game.findOne({ where: { name: gameName } });
             
             let infoString = `__**${game.get('name')}**__\n`;
 
