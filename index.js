@@ -4,7 +4,6 @@ const {Client, Collection, Intents} = require('discord.js');
 const {token} = require('./config.json');
 const { Game } = require('./Models/game.js');
 const { db } = require('./db.js');
-// const { associations } = require('./Models/associations.js');
 const { Rating } = require('./Models/rating');
 
 // establish intents
